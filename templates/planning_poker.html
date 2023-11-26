@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+<div class="container" >
+    <img class="ratio ratio-21x9"  src="../static/images/planningpoker.png" style="border-radius: 15px;">
+    <br><br>
+
+    <div class="barra">O que é Planning Poker?</div>
+<br>
+<br>
+    <div class="container--txthome">
+        <p>É uma técnica utilizada pelas equipes para estimar a quantidade de trabalho necessário para completar
+            uma tarefa. É uma maneira eficaz de chegar rapidamente a um consenso sobre o esforço necessário para
+            concluir um projeto.<br>
+            O processo começa com a identificação da tarefa ou característica a ser estimada pela equipe. Cada
+            membro da equipe é então solicitado a fornecer uma estimativa privada do trabalho necessário para
+            completar a tarefa.<br>
+            Todas as estimativas são então discutidas, e cada membro da equipe tem a oportunidade de explicar o
+            raciocínio por trás de sua estimativa. Finalmente é alcançado um consenso e a equipe passa para a
+            próxima tarefa.</p>
+    </div>
+
+    <br><br>
+    
+    <div class="barra">Exemplo Prático</div>
+
+    <div class="container--txthome">
+        <p>
+            <ol>
+                <li>Reúna a equipe: Reúna a equipe que está envolvida na estimativa das tarefas. Isso geralmente
+                    inclui desenvolvedores, testadores, designers e outros membros relevantes da equipe.</li><br>
+                <li>Prepare as histórias de usuário ou tarefas: Liste as histórias de usuário, tarefas ou itens que
+                    precisam ser estimados. Certifique-se de que todos na equipe compreendam o escopo do trabalho em
+                    questão.</li><br>
+                <li>Baralhe as cartas: Cada membro da equipe recebe um conjunto de cartas de Planning Poker. Essas
+                    cartas geralmente têm valores de estimativa, como 0, 1, 2, 3, 5, 8, 13, 20, 40, 100, etc. Você
+                    pode usar cartas físicas ou ferramentas de software para isso.</li><br>
+                <li>Discussão: Comece com a primeira história de usuário ou tarefa. O moderador da sessão
+                    (geralmente o Scrum Master) apresenta a descrição e os detalhes do item em questão. A equipe tem
+                    a oportunidade de fazer perguntas para esclarecimento.</li><br>
+                <li>Estimativas secretas: Cada membro da equipe escolhe uma carta de Planning Poker que representa
+                    sua estimativa para o esforço necessário para concluir a tarefa. Os membros mantêm suas cartas
+                    em segredo até que todos estejam prontos.</li><br>
+                <li>Revelação simultânea: Em um determinado momento, todos os membros da equipe revelam suas cartas
+                    ao mesmo tempo. Isso evita influência por parte de outros membros.</li><br>
+                <li>Discussão das discrepâncias: Se as estimativas divergirem significativamente, a equipe discute
+                    os motivos por trás das estimativas diferentes. Essa discussão ajuda a equipe a chegar a um
+                    consenso sobre a estimativa.</li><br>
+                <li>Nova rodada: Se necessário, repita o processo para a mesma história de usuário ou tarefa até que
+                    a equipe alcance um consenso sobre a estimativa. Isso pode envolver uma segunda rodada de
+                    estimativas ou uma discussão mais detalhada.</li><br>
+                <li>Anote a estimativa: Assim que a equipe chegar a um consenso sobre a estimativa, o valor é registrado e associado ao item em questão.</li><br>
+                <li>Repita o processo: Continue repetindo o processo para todas as histórias de usuário ou tarefas que precisam ser estimadas.</li><br>
+                <li>Conclua a sessão: Uma vez que todas as histórias de usuário ou tarefas tenham sido estimadas, a sessão de Planning Poker é concluída. As estimativas podem ser usadas para planejar sprints ou iterações em metodologias ágeis, como o Scrum.</li><br>
+               
+
+
+
+
+            </ol>
+
+
+            </p>
+    </div>
+
+
+</div>
+{% endblock %}

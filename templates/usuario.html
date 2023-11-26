@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+
+<div class="container text-center">
+    <a href="/time" type="button" class="btn btn-dark">Time</a>
+    <a href="/notas" type="button" class="btn btn-dark">Avaliar</a>
+
+   <div class="row align-items-start">
+    <div class="col">
+    <h1>Nome</h1>
+    <h2>{{data['nome']}}</h2>
+    <h1>Email</h1>
+    <h2>{{data['email']}}</h2>
+    <h1>Função</h1>
+    <h2>{{data['funcao']}}</h2>
+   <!-- <h2>{{data['password']}}</h2> -->
+    </div>
+    <div class="col">
+        <h2>NOTAS</h2>
+        
+        <h1>Comunicação</h1>
+        <h2>{{data['nota1']}}</h2>
+
+        <h1>Proatividade</h1>
+        <h2>{{data['nota2']}}</h2>
+        
+        <h1>Colaboração</h1>
+        <h2>{{data['nota3']}}</h2>
+        
+        <h1>Comunicação</h1>
+        <h2>{{data['nota4']}}</h2>
+        
+        <h1>Autonomia</h1>
+        <h2>{{data['nota5']}}</h2>
+        
+        <h1>Entrega de resultados</h1>
+        <h2>{{data['nota6']}}</h2>
+    </div>
+</div>
+   <a href="/" type="button" class="btn btn-dark">Sair</a>
+
+
+
+
+</div>
+
+{% endblock %}

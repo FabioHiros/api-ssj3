@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+<div class="container--imghome">
+
+<div class="container">
+
+
+
+  <div class="barra container">Formulário Pacer</div>
+
+</div>
+
+<form method="POST" action="/notas/" >
+  <select  name=nome class="form-select" aria-label="Default select example">
+    <option selected>Membros</option>
+    {% for nome in nomes %}
+      <option value="{{nome.nome}}">{{nome.nome}}</option>
+      {% endfor %}
+  </select>
+  
+
+  <div class="barra container">Comunicação</div>
+
+
+
+  <div class="container--form flex-column">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota1" id="inlineRadio0" value="0">
+      <label class="form-check-label" for="inlineRadio1">0 (Não Comunicativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota1" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1 (Pouco Comunicativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota1" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2 (Comunicativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota1" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3 (Muito Comunicativo)</label>
+    </div>
+  
+  </div>
+  
+  <div class="barra container">Proatividade</div>
+  
+
+  
+  <div class="container--form">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota2" id="inlineRadio0" value="0">
+      <label class="form-check-label" for="inlineRadio1">0 (Não Proativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota2" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1 (Pouco Proativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota2" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2 (Proativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota2" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3 (Muito Proativo)</label>
+    </div>
+  
+  </div>
+  <div class="barra container">Colaboração</div>
+  
+
+  
+  <div class="container--form">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota3" id="inlineRadio0" value="0">
+      <label class="form-check-label" for="inlineRadio1">0 (Não Colaborativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota3" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1 (Pouco Colaborativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota3" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2 (Colaborativo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota3" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3 (Muito Colaborativo)</label>
+    </div>
+  
+  </div>
+  <div class="barra container">Autonomia</div>
+  
+ 
+  
+  <div class="container--form">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota4" id="inlineRadio0" value="0">
+      <label class="form-check-label" for="inlineRadio1">0 (Muito Dependente) </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota4" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1 (Dependente) </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota4" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2 (Autônomo)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="nota4" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3 (Muito autônomo)</label>
+    </div>
+  
+  </div>
+  
+
+  <div class="barra container">Entrega de Resultados</div>
+  
+
+
+  <div class=" container--form" >
+    <div class="form-check" >
+      <input class="form-check-input"  type="radio" name="nota5" id="inlineRadio0" value="0">
+      <label class="form-check-label" for="inlineRadio1">0 (Sem Entregas)</label>
+    </div>
+    <div class="form-check ">
+      <input class="form-check-input" type="radio" name="nota5" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1 (Entregas Ruins)</label>
+    </div>
+    <div class="form-check ">
+      <input class="form-check-input" type="radio" name="nota5" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2 (Entregas Boas)</label>
+    </div>
+    <div class="form-check ">
+      <input class="form-check-input" type="radio" name="nota5" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3 (Entregas Perfeitas)</label>
+    </div>
+  
+  </div>
+
+  <br><br><br>
+  
+  <button type="submit">Entregar</button>
+</form>
+</div>
+
+</div>
+
+
+{% endblock %}
