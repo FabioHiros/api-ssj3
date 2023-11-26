@@ -96,12 +96,12 @@ def notas():
             # data=select(request.form.get('nome'))
             print(data)
             print(data.nota1)
-            data.nota1 = f'{data.nota1} {request.form['nota1']}'
+            data.nota1 = f'{data.nota1} {request.form["nota1"]}'
             print(data.nota1)
-            data.nota2 = f'{data.nota2} {request.form['nota2']}'
-            data.nota3 =  f'{data.nota3} {request.form['nota3']}'
-            data.nota4 =  f'{data.nota4} {request.form['nota4']}'
-            data.nota5 =  f'{data.nota5} {request.form['nota5']}'
+            data.nota2 = f'{data.nota2} {request.form["nota2"]}'
+            data.nota3 =  f'{data.nota3} {request.form["nota3"]}'
+            data.nota4 =  f'{data.nota4} {request.form["nota4"]}'
+            data.nota5 =  f'{data.nota5} {request.form["nota5"]}'
             db.session.add(data)
             db.session.commit()
             return render_template('index.html')
