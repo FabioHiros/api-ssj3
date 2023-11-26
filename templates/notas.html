@@ -14,9 +14,11 @@
 
 </div>
 
+
 <form method="POST" action="/notas/" >
-  <select  name=nome class="form-select" aria-label="Default select example">
-    <option selected>Membros</option>
+  <div class="barra container">Membro:</div>
+  <select  name=nome class="form-select" aria-label="Default select example" placeholder="Membros" required>
+    <!-- <option selected disabled>Membros</option> -->
     {% for nome in nomes %}
       <option value="{{nome.nome}}">{{nome.nome}}</option>
       {% endfor %}
