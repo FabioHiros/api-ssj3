@@ -1,8 +1,10 @@
 from flask import Flask,render_template, request ,session,flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text,create_engine
-from crud import pessoadb,select_user,moda
+from crud import pessoadb,select_user
+from statistics import mode
 from werkzeug.security import generate_password_hash, check_password_hash
+
 app = Flask("__name__")
 app.secret_key = '_5#y2L"F4dasQ8dasdasc]/'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
@@ -94,12 +96,12 @@ def notas():
             # data=select(request.form.get('nome'))
             print(data)
             print(data.nota1)
-            data.nota1 = f'{data.nota1}{request.form['nota1']}'
+            data.nota1 = f'{data.nota1} {request.form['nota1']}'
             print(data.nota1)
-            data.nota2 =  request.form['nota2']
-            data.nota3 =  request.form['nota3']
-            data.nota4 =  request.form['nota4']
-            data.nota5 =  request.form['nota5']
+            data.nota2 = f'{data.nota2} {request.form['nota2']}'
+            data.nota3 =  f'{data.nota3} {request.form['nota3']}'
+            data.nota4 =  f'{data.nota4} {request.form['nota4']}'
+            data.nota5 =  f'{data.nota5} {request.form['nota5']}'
             db.session.add(data)
             db.session.commit()
             return render_template('index.html')
@@ -133,7 +135,18 @@ def login():
 
     return render_template('login.html')
 
+#pega a moda das notas da pessoa + as informações sobre ela
+def moda(email):
+  data=pessoas.query.filter_by(email=email).first() 
+  data.nota1=mode(map(int,data.nota1.split(' ')))
+  data.nota2=mode(map(int,data.nota2.split(' ')))
+  data.nota3=mode(map(int,data.nota3.split(' ')))
+  data.nota4=mode(map(int,data.nota4.split(' ')))
+  data.nota5=mode(map(int,data.nota5.split(' ')))
+  
+  return data
 
+#cadastra o usuário------------------------------------
 @app.route('/usuario',methods=['POST','GET'])
 def user():
    
@@ -156,3 +169,7 @@ def cadastro(data):
       conn.execute(text(f"INSERT INTO pessoas( nome, email, funcao, password, nota1, nota2, nota3, nota4, nota5) VALUES ( '{data['nome']}', '{data['email']}', '{data['funcao']}', '{generate_password_hash(data['password'],method='pbkdf2',salt_length=16)}','{'0'}','{'0'}','{'0'}','{'0'}','{'0'}')"))
     
       conn.commit()
+
+#----------------------------------------------------
+
+

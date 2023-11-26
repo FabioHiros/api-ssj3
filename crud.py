@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, text
 from flask import Flask,request
 from flask_sqlalchemy import SQLAlchemy
-from app import pessoas
 
 
 
@@ -32,9 +31,3 @@ def select_user(id):
   usuario= next((x for x in a if x['nome']==id),None) #função pra filtrar por id
   return usuario
 
-def moda(email):
-
-  data=pessoas.query.filter_by(email=email).first() 
-  notas = [data.nota1,data.nota2,data.nota3,data.nota4,data.nota5]
-
-  return
