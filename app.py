@@ -126,12 +126,19 @@ def login():
         password = request.form['password']
 
         user = pessoas.query.filter_by(email=email).first()
-        newuser = moda(email)
-        if check_password_hash(user.password,password):
-            session['email'] = user.email
-            return render_template('/usuario.html',data=newuser)
+        print(user)
+        if user==None:
+            
+                return render_template('login.html',error='Invalid user')
+        
+        
         else:
-            return render_template('login.html',error='Invalid user')
+            if check_password_hash(user.password,password):
+                session['email'] = user.email
+                newuser = moda(email)
+                return render_template('/usuario.html',data=newuser)
+            else:
+                return render_template('login.html',error='Invalid user')
 
     return render_template('login.html')
 
