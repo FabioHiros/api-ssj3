@@ -4,13 +4,14 @@ from sqlalchemy import text,create_engine
 from crud import pessoadb,select_user
 from statistics import mode
 from werkzeug.security import generate_password_hash, check_password_hash
+from collections import Counter
 
 app = Flask("__name__")
 app.secret_key = '_5#y2L"F4dasQ8dasdasc]/'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
-app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+mysqlconnector://root:a1b2c3d4@127.0.0.1:3306/dbapi'
+app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+mysqlconnector://root:147258369@127.0.0.1:3306/dbapi'
 #variavel contendo o caminho para o banco de dados
-db_connection_string = 'mysql+mysqlconnector://root:a1b2c3d4@127.0.0.1:3306/dbapi'
+db_connection_string = 'mysql+mysqlconnector://root:147258369@127.0.0.1:3306/dbapi'
 
 #conecta no banco de dados
 engine = create_engine(
@@ -148,13 +149,30 @@ def login():
 #pega a moda das notas da pessoa + as informações sobre ela
 def moda(email):
   data=pessoas.query.filter_by(email=email).first() 
-  data.nota1=mode(map(int,data.nota1.split(' ')))
-  data.nota2=mode(map(int,data.nota2.split(' ')))
-  data.nota3=mode(map(int,data.nota3.split(' ')))
-  data.nota4=mode(map(int,data.nota4.split(' ')))
-  data.nota5=mode(map(int,data.nota5.split(' ')))
+  vva=map(int,data.nota1.split(' '))
+  data.nota1=calcular_moda(vva)
+  data.nota2=calcular_moda((map(int,data.nota2.split(' '))))
+  data.nota3=calcular_moda((map(int,data.nota3.split(' '))))
+  data.nota4=calcular_moda((map(int,data.nota4.split(' '))))
+  data.nota5=calcular_moda((map(int,data.nota5.split(' '))))
   
+
   return data
+
+def calcular_moda(lista):
+
+    # Calcula a contagem de cada elemento na lista
+    contagem = Counter(lista)
+
+    # Encontra o(s) elemento(s) com a maior contagem (moda)
+    modos = [k for k, v in contagem.items() if v == max(contagem.values())]
+
+    # Se houver um empate, retorna o maior número entre os modos
+    if len(modos) > 1:
+        return max(modos)
+    else:
+        return modos[0]
+
 
 #cadastra o usuário------------------------------------
 @app.route('/usuario',methods=['POST','GET'])

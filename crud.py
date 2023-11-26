@@ -5,12 +5,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app=Flask('__name__')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:a1b2c3d4@127.0.0.1:3306/dbapi'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:147258369@127.0.0.1:3306/dbapi'
 db = SQLAlchemy(app)
 
 
 #variavel contendo o caminho para o banco de dados
-db_connection_string = 'mysql+mysqlconnector://root:a1b2c3d4@127.0.0.1:3306/dbapi'
+db_connection_string = 'mysql+mysqlconnector://root:147258369@127.0.0.1:3306/dbapi'
 
 #conecta no banco de dados
 engine = create_engine(
